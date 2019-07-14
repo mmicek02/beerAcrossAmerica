@@ -1,36 +1,34 @@
 'use strict';
 
-const apiKey = 'ZiOslbWC3YWLeCID4hI1zi8dUZaUYz85j5IDsRRp';
+const searchURL = 'https://api.openbrewerydb.org/breweries';
 
-const searchURL = 'https://developer.nps.gov/api/v1/parks';
-
-/* This function takes the data from the user and puts it a format that can
-be manipulated by the rest of the code */ 
+/* This function takes the paramaters from the user and puts it a format that can
+be manipulated by the API */ 
 function formatQueryParams(params) {
     const queryItems = Object.keys(params)
       .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     return queryItems.join('&');
   }
 
-/* This function will show all of the state park results, with a maximum of ten 
-results. It displays the name of the park, a short description, a webiste, and
-the park address */
+/* This function will show all of the brewery results, with a maximum of ten 
+results. It displays the name of the brewery, a short description, a webiste, and
+the address */
 function displayResults(responseJson, maxResults) {
     // if there are previous results, remove them
     console.log(responseJson);
     $('#results-list').empty();
     $('#js-error-message').empty();
     // iterate through the data array, stopping at the max number of results
-    for (let i = 0; i < responseJson.data.length & i<maxResults ; i++){
+    for (let i = 0; i < responseJson.length & i<maxResults ; i++){
       // for each video object in the data
       //array, add a list item to the results 
       //list with the article title, source, author,
       //description, and image
       $('#results-list').append(
-        `<li><h3><a href="${responseJson.data[i].url}">${responseJson.data[i].fullName}</a></h3>
-        <p>${responseJson.data[i].description}</p>
-        <p><a href="${responseJson.data[i].url}">Vist this park's website</a></p>
-        <p><a href="${responseJson.data[i].directionsUrl}">Click here for directions</a></p>
+        `<li><h3><a href="${responseJson[i].website_url}">${responseJson[i].name}</a></h3>
+        <p>${responseJson[i].brewery_type}</p>
+        <p><a href="${responseJson[i].website_url}">Vist this park's website</a></p>
+        <p>${responseJson[i].street}</p>
         </li>`
       )};
     //display the results section  
@@ -41,19 +39,14 @@ function displayResults(responseJson, maxResults) {
 the data can correctly and successfully pulled from the API */
 function findStateParks(query, maxResults=10) {
     const params = {
-        stateCode: query,
-        limit: maxResults,
-        api_key: apiKey,
+        by_state: query,
+        per_page: maxResults,
+        sort: 'type,name',
     };
     const queryString = formatQueryParams(params)
     const url = searchURL + '?' + queryString;
   
     console.log(url);
-  
-    /*const options = {
-      headers: new Headers({
-        "X-Api-Key": apiKey})
-    };*/
   
     fetch(url)
       .then(response => {
