@@ -1,45 +1,129 @@
+/* Universal CSS */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Fira Sans', sans-serif; /* Font from google fonts */
+  font-size: 18px;
+}
+
+.main {
+  border: 1px solid gray;
+}
+
+header img {
+  display: flex;
+  max-width: 150px;
+}
+
+.userSearch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 75px;
+  padding-left: 75px;
+}
+
+.displayResults {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.displayResults h2 {
+  align-self: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 0;
+  border: 1px solid gray;
+  border-radius: 10px;
+  max-width: auto;
+  max-height: 500px;
+  padding: 1em;
+  margin: 25px;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.details p { 
+  text-align: center;
+}
+ 
+/* social media icon placement and style */
+.social {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0px -4px 3px -3px gray;
+}
+.social li {
+  list-style-type:none;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem; 
+}
+
+/* CSS for tablets */
+@media screen and (min-width: 426px) and (max-width: 1023px) {
+  header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      flex: 0 1 300px;
+  }
+  header > h2 {
+      flex: 0 0 120;
+      /* The above code sets flex-grow: 0; flex-shrink: 1; flex-basis: 120px */
+  }
+  header > img {
+      flex: 0 0 50px;
   }
   
-  body {
-    font-family: 'Roboto', sans-serif;
+  .displayResults {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
   }
-  
-  button, input[type="text"] {
-    padding: 5px;
+  /* sets the width of .product and allows for uniform sizing and spacing when in a single row */
+  .result {
+      width: 300px;
+      margin: 10px;
+      padding: 5px;
   }
-  
-  button:hover {
-    cursor: pointer;
+}
+
+/* CSS for mobile devices */
+@media screen and (max-width: 425px) {
+  .displayResults {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
   }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  /* sets the width of .product and allows for uniform sizing and spacing when in a single row */
+  .result {
+      width: 300px;
+      margin: 10px;
+      padding: 5px;
   }
-  
-  li {
-    padding: 10px;
-  }
-  
-  li, img {
-    max-width: 500px;
-  }
-  
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .error-message {
-      color: red;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  #js-search-term, #js-search-results {
-    border: 1px solid black;
-  }
+}
+/* END OF CSS */

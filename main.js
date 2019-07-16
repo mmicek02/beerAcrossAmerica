@@ -25,11 +25,27 @@ function displayResults(responseJson, maxResults) {
       //list with the article title, source, author,
       //description, and image
       $('#results-list').append(
-        `<li><h3><a href="${responseJson[i].website_url}">${responseJson[i].name}</a></h3>
+        /*`<span class="result">
+          <h3><a href="${responseJson[i].website_url}">${responseJson[i].name}</a></h3>
         <p>${responseJson[i].brewery_type}</p>
         <p><a href="${responseJson[i].website_url}">Vist this park's website</a></p>
         <p>${responseJson[i].street}</p>
-        </li>`
+        </span>`*/
+        `<section class="displayResults hidden">
+          <span class="details">
+              <span class="result">
+                  <span class="imagePlaceholder"></span>
+                  <h3>
+                    <a href="${responseJson[i].website_url}">${responseJson[i].name}</a>
+                  </h3>
+                  <p class="resultText">
+                    <p>
+                      <a href="${responseJson[i].website_url}">Visit this brewery's website</a>
+                    </p>
+                    <p>${responseJson[i].street}<br>${responseJson[i].city}, ${responseJson[i].state}</p>
+                  </p>
+          </span>
+        </span>`
       )};
     //display the results section  
     $('#results').removeClass('hidden');
@@ -37,7 +53,7 @@ function displayResults(responseJson, maxResults) {
 
 /* This function will parse together the user submitted data and the searchURL 
 the data can correctly and successfully pulled from the API */
-function findStateParks(query, maxResults=10) {
+function findStateParks(query, maxResults=50) {
     const params = {
         by_state: query,
         per_page: maxResults,
@@ -50,7 +66,7 @@ function findStateParks(query, maxResults=10) {
   
     fetch(url)
       .then(response => {
-        if (maxResults <= 10) {
+        if (maxResults <= 50) {
           return response.json();
         }
         throw new Error(response.statusText);
