@@ -2,6 +2,8 @@
 
 const searchURL = 'https://api.openbrewerydb.org/breweries';
 
+const googleMapURL = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyA-1SSrvbpVeChmfDcHI9KXMBAH94ydOPs&callback=initMap';
+
 /* This function takes the paramaters from the user and puts it a format that can
 be manipulated by the API */ 
 function formatQueryParams(params) {
@@ -24,13 +26,8 @@ function displayResults(responseJson, maxResults) {
       //array, add a list item to the results 
       //list with the article title, source, author,
       //description, and image
+
       $('#results-list').append(
-        /*`<span class="result">
-          <h3><a href="${responseJson[i].website_url}">${responseJson[i].name}</a></h3>
-        <p>${responseJson[i].brewery_type}</p>
-        <p><a href="${responseJson[i].website_url}">Vist this park's website</a></p>
-        <p>${responseJson[i].street}</p>
-        </span>`*/
         `<section class="displayResults hidden">
           <span class="details">
               <span class="result">
@@ -44,8 +41,12 @@ function displayResults(responseJson, maxResults) {
                     </p>
                     <p>${responseJson[i].street}<br>${responseJson[i].city}, ${responseJson[i].state}</p>
                   </p>
-          </span>
-        </span>`
+                  <h3>Brewery Map</h3>
+                    <!--The div element for the map -->
+                    <div id="map"></div>
+                </span>
+            </span>
+            </section>`
       )};
     //display the results section  
     $('#results').removeClass('hidden');
@@ -53,9 +54,10 @@ function displayResults(responseJson, maxResults) {
 
 /* This function will parse together the user submitted data and the searchURL 
 the data can correctly and successfully pulled from the API */
-function findStateParks(query, maxResults=50) {
+function findBrewery(query, maxResults=50) {
     const params = {
-        by_state: query,
+        //by_state: query,
+        by_city: query,
         per_page: maxResults,
         sort: 'type,name',
     };
@@ -73,7 +75,7 @@ function findStateParks(query, maxResults=50) {
       })
       .then(responseJson => displayResults(responseJson, maxResults))
       .catch(err => {
-        $('#js-error-message').text(`Something went wrong, please enter a value between 1 and 10`);
+        $('#js-error-message').text(`Something went wrong, please enter a value between 1 and 50`);
       });
   }
 
@@ -83,8 +85,26 @@ function watchForm() {
       event.preventDefault();
       const searchTerm = $('#js-search-term').val();
       const maxResults = $('#js-search-results').val();
-      findStateParks(searchTerm, maxResults);
+      findBrewery(searchTerm, maxResults);
     });
   }
+
+  // Initialize and add the map
+function initMap(responseJson, maxResults) {
+  for (let p = 0; p < responseJson.length & p<maxResults ; p++){
+    // The location of the brewery
+    let breweryLocation = {lat: -25.344, lng: 131.036};
+    // The map, centered at breweryLocation
+    let map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 4, center: breweryLocation});
+    // The marker, positioned at breweryLocation
+    let marker = new google.maps.Marker({
+      position: breweryLocation, 
+      map: map
+    });
+  //
+    }
+}
   //Calls the watchForm function and allows the res of the code to run
   $(watchForm);
+  $(initMap);
