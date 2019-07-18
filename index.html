@@ -17,21 +17,21 @@
             <h1>Find a brewery near you!</h1>
             <section class="userSearch">
                 <form id="js-form">
-                    <label for="search-term">Search State</label>
-                    <input type="text" name="search-term" id="js-search-term" required>
-                    
-                    <label for="max-results">Maximum results to return</label>
+                    <label for="search-term">Search a City</label><br>
+                    <input type="text" name="search-term" placeholder="Chicago" id="js-search-term" required>
+                    <br>
+                    <label for="max-results">Maximum results to return (up to 50)</label><br>
                     <input type="number" name="search-results" id="js-search-results" value="10">
                     
-                    <input type="submit" value="Go!">
+                    <input type="submit" id="btn" value="Search!">
                 </form>
             </section>
             <p id="js-error-message" class="error-message"></p>
-            <section id="results" class="hidden">
-                <section class="displayResults">
-                    <span id="results-list"></span>
+                <section id="results" class="hidden">
+                    <section class="displayResults">
+                        <span id="results-list"></span>
+                    </section>
                 </section>
-            </section>
         </div>
     </main>
     <script src="main.js"></script>

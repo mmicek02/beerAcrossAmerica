@@ -20,6 +20,7 @@ function displayResults(responseJson, maxResults) {
     console.log(responseJson);
     $('#results-list').empty();
     $('#js-error-message').empty();
+    $('#js-form').removeClass('.userSearch');
     // iterate through the data array, stopping at the max number of results
     for (let i = 0; i < responseJson.length & i<maxResults ; i++){
       // for each video object in the data
@@ -40,12 +41,19 @@ function displayResults(responseJson, maxResults) {
                       <a href="${responseJson[i].website_url}">Visit this brewery's website</a>
                     </p>
                     <p>${responseJson[i].street}<br>${responseJson[i].city}, ${responseJson[i].state}</p>
+                  
+                    <p>
+                      <a href="index.html">Back to Search</a>
+                    </p>
                   </p>
                   <h3>Brewery Map</h3>
                     <!--The div element for the map -->
-                    <div id="map"></div>
+                    <div id="map">
+                      
+                    </div>
                 </span>
             </span>
+
             </section>`
       )};
     //display the results section  
