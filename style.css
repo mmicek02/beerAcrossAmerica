@@ -13,6 +13,19 @@ body {
   background-size: cover;
 }
 
+p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: auto;
+  padding-left: auto;
+  margin-right: auto;
+  margin-left: auto;
+  width: 380px;
+  /*transform: translate(125%, 20%);*/
+  color: white;
+}
+
 .main {
   border: 1px solid gray;
 }
@@ -109,7 +122,7 @@ a:visited {
 }
 
 a:hover {
-  color: rgb(104, 86, 27);
+  color: rgb(255, 94, 0);
   text-decoration: underline;
 }
 
