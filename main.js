@@ -2,8 +2,6 @@
 
 const searchURL = 'https://api.openbrewerydb.org/breweries';
 
-const googleMapURL = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyA-1SSrvbpVeChmfDcHI9KXMBAH94ydOPs&callback=initMap';
-
 /* This function takes the paramaters from the user and puts it a format that can
 be manipulated by the API */ 
 function formatQueryParams(params) {
@@ -34,23 +32,12 @@ function displayResults(responseJson, maxResults) {
               <span class="result">
                   <span class="imagePlaceholder"></span>
                   <h3>
-                    <a href="${responseJson[i].website_url}">${responseJson[i].name}</a>
+                    ${responseJson[i].name}
                   </h3>
                   <p class="resultText">
-                    <p>
-                      <a href="${responseJson[i].website_url}">Visit this brewery's website</a>
-                    </p>
-                    <p>${responseJson[i].street}<br>${responseJson[i].city}, ${responseJson[i].state}</p>
-                  
-                    <p>
-                      <a href="index.html">Back to Search</a>
-                    </p>
+                      <a href="${responseJson[i].website_url}" target="_blank">Visit this brewery's website</a>
+                    <p>${responseJson[i].street}<br>${responseJson[i].city}, ${responseJson[i].state} ${responseJson[i].postal_code}</p>
                   </p>
-                  <h3>Brewery Map</h3>
-                    <!--The div element for the map -->
-                    <div id="map">
-                      
-                    </div>
                 </span>
             </span>
 
@@ -67,7 +54,7 @@ function findBrewery(query, maxResults=50) {
         //by_state: query,
         by_city: query,
         per_page: maxResults,
-        sort: 'type,name',
+        //sort: 'type,name',
     };
     const queryString = formatQueryParams(params)
     const url = searchURL + '?' + queryString;
@@ -97,22 +84,5 @@ function watchForm() {
     });
   }
 
-  // Initialize and add the map
-function initMap(responseJson, maxResults) {
-  for (let p = 0; p < responseJson.length & p<maxResults ; p++){
-    // The location of the brewery
-    let breweryLocation = {lat: -25.344, lng: 131.036};
-    // The map, centered at breweryLocation
-    let map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 4, center: breweryLocation});
-    // The marker, positioned at breweryLocation
-    let marker = new google.maps.Marker({
-      position: breweryLocation, 
-      map: map
-    });
-  //
-    }
-}
   //Calls the watchForm function and allows the res of the code to run
   $(watchForm);
-  $(initMap);
