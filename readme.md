@@ -6,7 +6,7 @@ Screenshots:
 
 ![alt text](https://github.com/mmicek02/markdown-here/raw/master/src/common/screenshots/Screen Shot 2019-07-20 at 7.20.44 AM.png "Complete Laptop screenshot")
 
-![alt text](https://github.com/mmicek02/beerAcrossAmerica/tree/master/screenshots/Screen Shot 2019-07-20 at 7.10.40 AM "Tablet search result screenshot")
+![alt text](https://github.com/mmicek02/beerAcrossAmerica/tree/master/screenshots/Screen_Shot_2019-07-20_at_7.10.40_AM.png "Tablet search result screenshot")
 
 ![alt text](https://github.com/mmicek02/beerAcrossAmerica/tree/master/screenshots/Screen Shot 2019-07-20 at 7.09.52 AM "Mobile search screenshot")
 
