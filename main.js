@@ -75,6 +75,7 @@ the data can correctly and successfully pulled from the API */
     })
     .catch(err => {
       console.log(err)
+      $('#js-error-message').text(`Something went wrong, please enter a value between 1 and 50`);
     });
 }
 
@@ -84,7 +85,6 @@ function watchForm() {
       event.preventDefault();
       const searchTerm = $('#js-search-term').val();
       const maxResults = $('#js-search-results').val();
-      //findBrewery(searchTerm, maxResults);
       getBreweries(searchTerm, maxResults);
     });
   }
