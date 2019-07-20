@@ -4,7 +4,7 @@ https://mmicek02.github.io/beerAcrossAmerica/
 
 Screenshots:
 
-![alt text](https://github.com/mmicek02/beerAcrossAmerica/tree/master/screenshots/Screen Shot 2019-07-20 at 7.20.44 AM.png "Complete Laptop screenshot")
+![alt text](https://github.com/mmicek02/markdown-here/raw/master/src/common/screenshots/Screen Shot 2019-07-20 at 7.20.44 AM.png "Complete Laptop screenshot")
 
 ![alt text](https://github.com/mmicek02/beerAcrossAmerica/tree/master/screenshots/Screen Shot 2019-07-20 at 7.10.40 AM "Tablet search result screenshot")
 
