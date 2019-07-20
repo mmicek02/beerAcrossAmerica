@@ -138,25 +138,6 @@ a:hover {
   text-align: center;
 }
 
-/* social media icon placement and style */
-.social {
-  height: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  box-shadow: 0px -4px 3px -3px gray;
-}
-.social li {
-  list-style-type:none;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem; 
-}
 
 
 /* CSS for tablets */
@@ -166,16 +147,45 @@ footer {
       flex-direction: row;
       justify-content: space-around;
       align-items: center;
-      flex: 0 1 300px;
+      flex: 0 1 250px;
   }
-  header > h2 {
+  header > h1 {
       flex: 0 0 120;
       /* The above code sets flex-grow: 0; flex-shrink: 1; flex-basis: 120px */
   }
-  header > img {
-      flex: 0 0 50px;
+  
+  #js-form {
+    width: 350px;
+    font-size: 20px;
+    overflow: hidden;
+    padding: 8px 0;
+    margin: 8px 0;
   }
   
+  #js-search-term, #js-search-results {
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    margin: 10px 0;
+    font-size: 18px;
+    width: 90%;
+  
+    border-bottom: 1px solid;
+  }
+  
+  #btn {
+    width: 90%;
+    background: none;
+    border: 2px solid white;
+    color: white;
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 12px 0;
+  }
+
+
   .displayResults {
       display: flex;
       flex-direction: column;
@@ -183,7 +193,7 @@ footer {
   }
   /* sets the width of .product and allows for uniform sizing and spacing when in a single row */
   .result {
-      width: 300px;
+      width: 250px;
       margin: 10px;
       padding: 5px;
   }
@@ -191,6 +201,51 @@ footer {
 
 /* CSS for mobile devices */
 @media screen and (max-width: 425px) {
+
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: auto;
+    padding-left: auto;
+    margin-right: auto;
+    margin-left: auto;
+    width: 250px;
+    /*transform: translate(125%, 20%);*/
+    color: white;
+  }
+
+  #js-form {
+    width: 350px;
+    font-size: 20px;
+    overflow: hidden;
+    padding: 8px 0;
+    margin: 8px 0;
+  }
+  
+  #js-search-term, #js-search-results {
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    margin: 10px 0;
+    font-size: 18px;
+    width: 90%;
+  
+    border-bottom: 1px solid;
+  }
+  
+  #btn {
+    width: 90%;
+    background: none;
+    border: 2px solid white;
+    color: white;
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 12px 0;
+  }
+
   .displayResults {
       display: flex;
       flex-direction: column;
@@ -198,9 +253,12 @@ footer {
   }
   /* sets the width of .product and allows for uniform sizing and spacing when in a single row */
   .result {
-      width: 300px;
-      margin: 10px;
-      padding: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 250px;
+    margin: 10px;
+    padding: 5px;
   }
 }
 /* END OF CSS */
