@@ -1,4 +1,4 @@
-Beer Arcoss America
+Beer Across America
 
 https://mmicek02.github.io/beerAcrossAmerica/
 
@@ -15,3 +15,9 @@ A summary section. As a lover of craft beer and of the variety of styles that ca
 This web app uses: HTML/CSS/JavaScript/jQuery
 
 To access the Yelp API I had to use a proxy server to allow client (CORS) requests.
+
+REPO: https://github.com/mmicek02/beerAcrossAmerica
+
+LIVE SITE: https://mmicek02.github.io/beerAcrossAmerica/
+
+PORTFOLIO: https://mmicek02.github.io/portfolio/
