@@ -22,7 +22,6 @@ p {
   margin-right: auto;
   margin-left: auto;
   width: 380px;
-  /*transform: translate(125%, 20%);*/
   color: white;
 }
 
@@ -130,7 +129,6 @@ a:hover {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  /*justify-content: center;*/
   justify-content: space-evenly;
   align-items: center;
 }
@@ -152,14 +150,15 @@ a:hover {
   header > h1 {
       flex: 0 0 120;
       /* The above code sets flex-grow: 0; flex-shrink: 1; flex-basis: 120px */
+      text-align: center;
   }
   
   #js-form {
-    width: 350px;
+    width: 300px;
     font-size: 20px;
     overflow: hidden;
-    padding: 8px 0;
-    margin: 8px 0;
+    padding: 16px 0;
+    margin: 16px 0;
   }
   
   #js-search-term, #js-search-results {
@@ -169,13 +168,13 @@ a:hover {
     color: white;
     margin: 10px 0;
     font-size: 18px;
-    width: 90%;
+    width: 70%;
   
     border-bottom: 1px solid;
   }
   
   #btn {
-    width: 90%;
+    width: 70%;
     background: none;
     border: 2px solid white;
     color: white;
@@ -191,16 +190,14 @@ a:hover {
       flex-direction: column;
       justify-content: space-around;
   }
-  /* sets the width of .product and allows for uniform sizing and spacing when in a single row */
+  
   .result {
-      width: 250px;
-      margin: 10px;
-      padding: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
   }
-}
-
-/* CSS for mobile devices */
-@media screen and (max-width: 425px) {
 
   p {
     display: flex;
@@ -211,7 +208,27 @@ a:hover {
     margin-right: auto;
     margin-left: auto;
     width: 250px;
-    /*transform: translate(125%, 20%);*/
+    color: white;
+  }
+}
+
+/* CSS for mobile devices */
+@media screen and (max-width: 425px) {
+  header > h1 {
+    flex: 0 0 120;
+    /* The above code sets flex-grow: 0; flex-shrink: 1; flex-basis: 120px */
+    text-align: center;
+  }
+
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: auto;
+    padding-left: auto;
+    margin-right: auto;
+    margin-left: auto;
+    width: 250px;
     color: white;
   }
 
@@ -219,8 +236,10 @@ a:hover {
     width: 350px;
     font-size: 20px;
     overflow: hidden;
-    padding: 8px 0;
-    margin: 8px 0;
+    padding: 16px 0;
+    margin: 16px 0;
+    margin-right: auto;
+    margin-left: auto;
   }
   
   #js-search-term, #js-search-results {
@@ -230,13 +249,14 @@ a:hover {
     color: white;
     margin: 10px 0;
     font-size: 18px;
-    width: 90%;
-  
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
     border-bottom: 1px solid;
   }
   
   #btn {
-    width: 90%;
+    width: 70%;
     background: none;
     border: 2px solid white;
     color: white;
@@ -251,14 +271,13 @@ a:hover {
       flex-direction: column;
       justify-content: space-around;
   }
-  /* sets the width of .product and allows for uniform sizing and spacing when in a single row */
+
   .result {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    max-width: 250px;
-    margin: 10px;
-    padding: 5px;
+    justify-content: space-evenly;
+    align-items: center;
   }
 }
 /* END OF CSS */
